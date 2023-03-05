@@ -41,5 +41,18 @@ namespace MoodAnalyserTest
                 Assert.AreEqual("Message should not be null", moodAnalyserException.Message);
             }
         }
+        [Test]
+        public void GivenMessage_ThrowMoodAnalyserException_EmptyMessage()
+        {
+            try
+            {
+                MoodAnalyser moodAnalyser = new MoodAnalyser(string.Empty);
+                string result = moodAnalyser.AnalyseMood();
+            }
+            catch (MoodAnalyserExceptions moodAnalyserException)
+            {
+                Assert.AreEqual("Message should not be Empty", moodAnalyserException.Message);
+            }
+        }
     }
 }
