@@ -23,9 +23,23 @@ namespace MoodAnalyserTest
         [Test]
         public void GivenNullMood_WhenAnalysed_ShouldReturnHappy()
         {
-            MoodAnalyser moodAnalyser = new MoodAnalyser("null");
+            MoodAnalyser moodAnalyser = new MoodAnalyser(null);
             string result = moodAnalyser.AnalyseMood();
             Assert.AreEqual(result, "Happy");
+        }
+        [Test]
+        public void GivenMessage_ThrowMoodAnalyserException_NullMessage()
+        {
+            try
+            {
+                MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+                string result = moodAnalyser.AnalyseMood();
+
+            }
+            catch (MoodAnalyserExceptions moodAnalyserException)
+            {
+                Assert.AreEqual("Message should not be null", moodAnalyserException.Message);
+            }
         }
     }
 }
