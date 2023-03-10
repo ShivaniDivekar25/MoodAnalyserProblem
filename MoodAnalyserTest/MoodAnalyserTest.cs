@@ -54,5 +54,19 @@ namespace MoodAnalyserTest
                 Assert.AreEqual("Message should not be Empty", moodAnalyserException.Message);
             }
         }
+        [Test]
+        public void GivenClassInfo_ShouldReturn_MoodAnalyser()
+        {
+            try
+            {
+                object expected = new MoodAnalyser();
+                object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalyser", "MoodAnalayser");
+                expected.Equals(obj);
+            }
+            catch (MoodAnalyserExceptions moodAnalyserException)
+            {
+                Assert.AreEqual("Class not found", moodAnalyserException.Message);
+            }
+        }
     }
 }

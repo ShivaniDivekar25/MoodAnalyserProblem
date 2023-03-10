@@ -13,6 +13,10 @@ namespace MoodAnalyzer
         {
             this.message = message;
         }
+        public MoodAnalyser()
+        {
+            Console.WriteLine("Default construtor");
+        }
         public string AnalyseMood()
         {
             try
